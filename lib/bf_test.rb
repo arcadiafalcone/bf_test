@@ -11,6 +11,7 @@ q = "
   SELECT *
     WHERE {
       ?person a bf:Person .
+      ?person bf:label ?label
     }"
 
 s = SPARQL.parse(q)
@@ -18,5 +19,5 @@ s = SPARQL.parse(q)
 #puts s.inspect
 
 s.execute(g) do |result|
-  puts result.person
+  puts result.label
 end
